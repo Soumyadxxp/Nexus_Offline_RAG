@@ -1,10 +1,13 @@
 # Nexus
 
+> **An Offline Retrieval-Augmented Generation (RAG) Document Assistant Powered by Microsoft Phi**
+
 Nexus is an offline Retrieval-Augmented Generation (RAG) document assistant that enables users to interact with local documents using natural language. It combines semantic search with Microsoft's Phi language models to retrieve relevant information from indexed documents and generate accurate, context-aware responses.
 
 Unlike cloud-based AI assistants, Nexus performs all document processing, indexing, retrieval, and inference locally, ensuring complete privacy without requiring API keys or external services.
 
 Developed by **Soumyadeep Basu** as part of an undergraduate engineering curriculum.
+
 
 <img width="1827" height="850" alt="Screenshot 2026-07-08 185324" src="https://github.com/user-attachments/assets/3d487373-c461-4d99-b3b7-d4f27db7c3bf" />
 
@@ -18,106 +21,96 @@ Developed by **Soumyadeep Basu** as part of an undergraduate engineering curricu
 
 ---
 
-## Overview
+# Features
 
-Nexus allows users to ask questions about their documents using natural language. Documents are automatically indexed using semantic embeddings, enabling efficient retrieval of relevant information before generating responses with a locally hosted language model.
-
-The application supports multiple document formats and continuously monitors the document directory for changes, automatically rebuilding the index whenever documents are added, modified, or removed.
-
----
-
-## Features
-
-- Offline document question answering
-- Retrieval-Augmented Generation (RAG)
-- Local inference using Microsoft Phi language models
-- Semantic document search
-- Automatic vector indexing
-- Automatic document chunking
-- Live file monitoring and index updates
-- Multiple document format support
-- GPU acceleration with CUDA (when available)
-- Cross-platform compatibility
-- No API keys required
-- Fully local processing
+* Offline document question answering
+* Retrieval-Augmented Generation (RAG)
+* Local inference using Microsoft Phi language models
+* Semantic document search
+* Automatic document chunking
+* Automatic vector indexing
+* Real-time file monitoring
+* Automatic index rebuilding when documents change
+* Support for multiple document formats
+* GPU acceleration with CUDA (when available)
+* Cross-platform compatibility
+* No API keys required
+* Fully local and privacy-focused
 
 ---
 
-## Supported File Formats
+# Supported File Formats
 
 | Format | Supported |
-|---------|-----------|
-| TXT | Yes |
-| PDF | Yes |
-| DOCX | Yes |
-| CSV | Yes |
-| XLS | Yes |
-| XLSX | Yes |
+| ------ | --------- |
+| TXT    | ✅         |
+| PDF    | ✅         |
+| DOCX   | ✅         |
+| CSV    | ✅         |
+| XLS    | ✅         |
+| XLSX   | ✅         |
 
 ---
 
-## System Architecture
+# System Architecture
 
-```
-                    User Query
-                         │
-                         ▼
-                Document Collection
-                         │
-                         ▼
-                  File Loaders
-                         │
-                         ▼
-               Document Chunking
-                         │
-                         ▼
-      Sentence Transformer Embeddings
-                         │
-                         ▼
-               Vector Store Index
-                         │
-                         ▼
-              Semantic Retrieval
-                         │
-                         ▼
-          Microsoft Phi Language Model
-                         │
-                         ▼
-                 Generated Response
+```text
+                 User Query
+                      │
+                      ▼
+            Document Collection
+                      │
+                      ▼
+              Document Loaders
+                      │
+                      ▼
+             Document Chunking
+                      │
+                      ▼
+     Sentence Transformer Embeddings
+                      │
+                      ▼
+           LlamaIndex Vector Store
+                      │
+                      ▼
+         Semantic Similarity Search
+                      │
+                      ▼
+       Retrieved Relevant Chunks
+                      │
+                      ▼
+     Microsoft Phi Language Model
+                      │
+                      ▼
+            Generated Response
 ```
 
 ---
 
-## Technologies Used
+# Technologies Used
 
-- Python 3
-- LlamaIndex
-- Hugging Face Transformers
-- Microsoft Phi
-- Sentence Transformers
-- LangChain
-- PyTorch
-- pandas
-- PyMuPDF
-- python-docx
-- Watchdog
-- Rich
+* Python
+* LlamaIndex
+* Hugging Face Transformers
+* Microsoft Phi
+* Sentence Transformers
+* LangChain
+* PyTorch
+* pandas
+* PyMuPDF
+* python-docx
+* Watchdog
+* Rich
 
 ---
 
-## Project Structure
+# Project Structure
 
-```
+```text
 Nexus/
 │
-├── files/
-│   ├── document.pdf
-│   ├── notes.docx
-│   ├── report.txt
-│   └── dataset.xlsx
-│
-├── index_storage/
-│
+├── files/                 # Place your documents here
+├── index_storage/         # Automatically generated vector index
 ├── main.py
 ├── requirements.txt
 └── README.md
@@ -125,9 +118,9 @@ Nexus/
 
 ---
 
-## Installation
+# Installation
 
-### Clone the Repository
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Soumyadxxp/Nexus.git
@@ -135,9 +128,11 @@ git clone https://github.com/Soumyadxxp/Nexus.git
 cd Nexus
 ```
 
-### Create a Virtual Environment
+---
 
-**Windows**
+## 2. Create a Virtual Environment
+
+### Windows
 
 ```bash
 python -m venv venv
@@ -145,7 +140,7 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-**Linux / macOS**
+### Linux / macOS
 
 ```bash
 python3 -m venv venv
@@ -153,7 +148,9 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### Install Dependencies
+---
+
+## 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -161,23 +158,33 @@ pip install -r requirements.txt
 
 ---
 
-## Usage
+# First Run
 
-Create a directory named `files` in the project root if it does not already exist.
+During the first execution, Nexus automatically downloads the required language and embedding models from Hugging Face.
 
-Place the documents you want to analyze inside the `files` directory.
+Depending on your internet connection, this may take several minutes.
 
-Run the application.
+Once downloaded, the models are cached locally and future launches do not require an internet connection.
+
+---
+
+# Usage
+
+Run the application:
 
 ```bash
 python main.py
 ```
 
-During startup, Nexus will
+If the `files` directory does not exist, Nexus creates it automatically.
 
-1. Load the language model.
-2. Initialize the embedding model.
-3. Scan all supported documents.
+Place your supported documents inside the `files` directory before asking questions.
+
+During startup, Nexus will:
+
+1. Load the Microsoft Phi language model.
+2. Load the embedding model.
+3. Scan supported documents.
 4. Generate semantic embeddings.
 5. Build the vector index.
 6. Start monitoring the document directory.
@@ -185,11 +192,11 @@ During startup, Nexus will
 
 ---
 
-## Example Queries
+# Example Queries
 
-General questions
+## General Questions
 
-```
+```text
 What is this document about?
 
 Summarize the report.
@@ -201,9 +208,9 @@ What are the key findings?
 Who is the author?
 ```
 
-File-specific questions
+## File-Specific Questions
 
-```
+```text
 Summarize report.pdf
 
 Explain notes.docx
@@ -215,43 +222,47 @@ What does resume.pdf contain?
 
 ---
 
-## Built-in Commands
+# Built-in Commands
 
-| Command | Description |
-|----------|-------------|
-| info | Display project information |
-| cls | Clear the console |
-| exit | Exit the application |
-| quit | Exit the application |
+| Command | Description                 |
+| ------- | --------------------------- |
+| `info`  | Display project information |
+| `cls`   | Clear the terminal          |
+| `exit`  | Exit the application        |
+| `quit`  | Exit the application        |
 
 ---
 
-## Processing Pipeline
+# Retrieval-Augmented Generation Pipeline
 
 ### 1. Document Loading
 
-Supported files are loaded using dedicated parsers.
+Documents are loaded using dedicated parsers based on their file type.
 
 ### 2. Document Chunking
 
 Documents are divided into overlapping chunks.
 
-- Chunk Size: **128**
-- Chunk Overlap: **20**
+* **Chunk Size:** 128
+* **Chunk Overlap:** 20
 
 This improves semantic retrieval while maintaining contextual continuity.
 
 ### 3. Embedding Generation
 
-Each document chunk is converted into a semantic vector using the Sentence Transformer embedding model.
+Each document chunk is converted into a semantic vector using:
+
+```text
+sentence-transformers/all-mpnet-base-v2
+```
 
 ### 4. Vector Indexing
 
-Embeddings are stored in a LlamaIndex vector store for efficient similarity search.
+Embeddings are stored inside a LlamaIndex Vector Store for efficient similarity search.
 
 ### 5. Semantic Retrieval
 
-When a query is received, the system retrieves the most relevant document chunks based on semantic similarity.
+When a query is received, the system retrieves the most relevant document chunks using vector similarity.
 
 ### 6. Response Generation
 
@@ -259,74 +270,91 @@ The retrieved context is passed to Microsoft's Phi language model, which generat
 
 ---
 
-## Models Used
+# Models Used
 
-### Language Models
+## Language Models
 
-The application attempts to load the following models in order.
+Nexus attempts to load the following models in order:
 
-```
+```text
 microsoft/phi-2
 
 microsoft/phi-1_5
-
-microsoft/phi-1
 ```
 
 The first successfully initialized model is selected automatically.
 
-### Embedding Model
+## Embedding Model
 
-```
+```text
 sentence-transformers/all-mpnet-base-v2
 ```
 
 ---
 
-## Automatic File Monitoring
+# Automatic File Monitoring
 
 Nexus continuously monitors the `files` directory.
 
-Whenever a supported document is
+Whenever a supported document is:
 
-- Added
-- Modified
-- Deleted
+* Added
+* Modified
+* Deleted
 
-the application automatically rebuilds the vector index without requiring a restart.
-
----
-
-## Privacy
-
-Nexus is designed for complete local execution.
-
-- No cloud services are used.
-- No API keys are required.
-- No document data is transmitted externally.
-- All indexing and inference occur on the local machine.
+the application automatically reloads the documents and rebuilds the vector index without requiring a restart.
 
 ---
 
-## System Requirements
+# Privacy
 
-### Minimum
+Nexus is designed for completely local execution.
 
-- Python 3.10 or later
-- 8 GB RAM
-- Multi-core processor
-
-### Recommended
-
-- 16 GB RAM or more
-- NVIDIA GPU with CUDA support
-- SSD storage
-
-An internet connection is required only for downloading models during the first execution.
+* No cloud services
+* No API keys
+* No external inference
+* No document uploads
+* All indexing and inference remain on your computer
 
 ---
 
-## Author
+# GPU Support
+
+If an NVIDIA GPU with CUDA is available, Nexus automatically performs inference on the GPU.
+
+Otherwise, it seamlessly falls back to CPU execution.
+
+---
+
+# System Requirements
+
+## Minimum
+
+* Python 3.10 or later
+* 8 GB RAM
+* Multi-core processor
+
+## Recommended
+
+* Python 3.10 or later
+* 16 GB RAM or more
+* NVIDIA GPU with CUDA support
+* SSD storage
+
+An internet connection is required only during the first execution to download the required models.
+
+---
+
+# Limitations
+
+* Supports text-based documents only.
+* Scanned PDFs require OCR before processing.
+* Images inside PDFs are not analyzed.
+* Very large document collections may require additional memory.
+
+---
+
+# Author
 
 **Soumyadeep Basu**
 
@@ -334,20 +362,18 @@ This project was developed as part of an undergraduate engineering curriculum.
 
 ---
 
-## Acknowledgements
+# Acknowledgements
 
-This project is built upon the following open-source technologies.
+Nexus is built upon the following open-source technologies:
 
-- Microsoft Phi
-- LlamaIndex
-- Hugging Face Transformers
-- Sentence Transformers
-- LangChain
-- PyTorch
-- pandas
-- PyMuPDF
-- python-docx
-- Watchdog
-- Rich
-  
----
+* Microsoft Phi
+* LlamaIndex
+* Hugging Face Transformers
+* Sentence Transformers
+* LangChain
+* PyTorch
+* pandas
+* PyMuPDF
+* python-docx
+* Watchdog
+* Rich
