@@ -369,3 +369,5 @@ Nexus is built upon the following open-source technologies:
 * python-docx
 * Watchdog
 * Rich
+
+---
