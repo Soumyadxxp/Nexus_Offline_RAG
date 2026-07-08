@@ -123,7 +123,7 @@ Nexus/
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Soumyadxxp/Nexus.git
+git clone https://github.com/Soumyadxxp/Nexus_Offline_RAG.git
 
 cd Nexus
 ```
