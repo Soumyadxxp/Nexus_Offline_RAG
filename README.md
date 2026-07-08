@@ -10,8 +10,6 @@ Developed by **Soumyadeep Basu** as part of an undergraduate engineering curricu
 
 <img width="1838" height="676" alt="Screenshot 2026-07-08 185444" src="https://github.com/user-attachments/assets/03989ff5-7f25-4294-9fcb-1a77ef9b352f" />
 
-<img width="1825" height="826" alt="image" src="https://github.com/user-attachments/assets/a9c77fb5-f1f3-4b50-bf35-9ad189345af0" />
-
 <img width="1835" height="834" alt="Screenshot 2026-07-08 190024" src="https://github.com/user-attachments/assets/b7ca6ec7-ea20-4dad-bcb8-59db8356fd90" />
 
 <img width="1835" height="507" alt="Screenshot 2026-07-08 190120" src="https://github.com/user-attachments/assets/7802c8e1-6b1f-4313-bea2-5fe0c2c208d9" />
