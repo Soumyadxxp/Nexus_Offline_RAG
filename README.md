@@ -6,7 +6,7 @@ Nexus is an offline Retrieval-Augmented Generation (RAG) document assistant that
 
 Unlike cloud-based AI assistants, Nexus performs all document processing, indexing, retrieval, and inference locally, ensuring complete privacy without requiring API keys or external services.
 
-Developed by **Soumyadeep Basu** as part of an undergraduate engineering curriculum. 
+Developed by **Soumyadeep Basu** as part of an undergraduate engineering curriculum.  
 
 
 <img width="1827" height="850" alt="Screenshot 2026-07-08 185324" src="https://github.com/user-attachments/assets/3d487373-c461-4d99-b3b7-d4f27db7c3bf" />
