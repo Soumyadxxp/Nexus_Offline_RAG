@@ -4,7 +4,7 @@
 
 Nexus is an offline Retrieval-Augmented Generation (RAG) document assistant that enables users to interact with local documents using natural language. It combines semantic search with Microsoft's Phi language models to retrieve relevant information from indexed documents and generate accurate, context-aware responses.
 
-Unlike cloud-based AI assistants, Nexus performs all document processing, indexing, retrieval, and inference locally, ensuring complete privacy without requiring API keys or external services.
+Unlike cloud-based AI assistants, Nexus performs all document processing, indexing, retrieval, and inference locally, ensuring complete privacy without requiring API keys or external services. 
 
 Developed by **Soumyadeep Basu** as part of an undergraduate engineering curriculum.  
 
