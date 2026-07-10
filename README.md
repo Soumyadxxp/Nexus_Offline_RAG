@@ -123,9 +123,9 @@ Nexus/
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Soumyadxxp/Nexus_Offline_RAG.git
+git clone https://github.com/Soumyadxxp/Nexus.git
 
-cd Nexus_Offline_RAG
+cd Nexus
 ```
 
 ## 2. Create a Virtual Environment
