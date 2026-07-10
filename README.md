@@ -171,7 +171,7 @@ Once downloaded, the models are cached locally and future launches do not requir
 Run the application:
 
 ```bash
-python main.py
+python nexus.py
 ```
 
 If the `files` directory does not exist, Nexus creates it automatically.
